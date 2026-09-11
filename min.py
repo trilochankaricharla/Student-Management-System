@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import messagebox
 from dashboard import open_dashboard
@@ -35,7 +36,7 @@ def login():
     username = username_entry.get()
     password = password_entry.get()
 
-    if username == "admin" and password == "1234":
+    if username == os.getenv("ADMIN_USERNAME") and password == os.getenv("ADMIN_PASSWORD"): 
         root.destroy()
         open_dashboard()
     else:
